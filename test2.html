@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>btvn8-2</title>
+</head>
+<body>
+    <script>
+        //    Bài 2: Sử dụng vòng lặp để xóa phần tử trùng lặp trong mảng.
+        var numderArray = [ 25, 50, 43, 36, 31, 26, 24, 19, 28, 24,  4, 18, 16, 48, 47, 49, 42, 15,  3, 16 ];
+
+        function deduplicate(arr) {
+            let ans = [];
+            for ( let i = 0; i < arr.length; i++) {
+                if( ans.indexOf(arr[i]) === -1) {
+                    ans.push(arr[i])
+                }
+            }
+            return ans;
+        }
+        var kq = deduplicate(numderArray);
+        console.log('kq', kq);
+
+
+// output: [ 25, 50, 43, 36, 31, 26, 24, 19, 28,  4, 18, 16, 48, 47, 49, 42, 15,  3 ]
+    </script>
+</body>
+</html>

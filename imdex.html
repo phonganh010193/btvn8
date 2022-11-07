@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>btvn8</title>
+</head>
+<body>
+    <script>
+        var people = [
+    { firstName: 'Sam', lastName: 'Hughes', DOB: '07/07/1978', department: 'Development', salary: '45000' },
+    { firstName: 'Terri', lastName: 'Bishop', DOB: '02/04/1989', department: 'Development', salary: '35000' },
+    { firstName: 'Jar', lastName: 'Burke', DOB: '11/01/1985', department: 'Marketing', salary: '38000' },
+    { firstName: 'Julio', lastName: 'Miller', DOB: '12/07/1991', department: 'Sales', salary: '40000' },
+    { firstName: 'Chester', lastName: 'Flores', DOB: '03/15/1988', department: 'Development', salary: '41000' },
+    { firstName: 'Madison', lastName: 'Marshall', DOB: '09/22/1980', department: 'Sales', salary: '32000' },
+    { firstName: 'Ava', lastName: 'Pena', DOB: '11/02/1986', department: 'Development', salary: '38000' },
+    { firstName: 'Gabriella', lastName: 'Steward', DOB: '08/26/1994', department: 'Marketing', salary: '46000' },
+    { firstName: 'Charles', lastName: 'Campbell', DOB: '09/04/1977', department: 'Sales', salary: '42000' },
+    { firstName: 'Tiffany', lastName: 'Lambert', DOB: '05/11/1990', department: 'Development', salary: '34000' },
+    { firstName: 'Antonio', lastName: 'Gonzalez', DOB: '03/24/1985', department: 'Office Management', salary: '49000' },
+    { firstName: 'Aaron', lastName: 'Garrett', DOB: '09/04/1985', department: 'Development', salary: '39000' },
+];
+
+// 1) What is the average income of all the people in the array?
+        function Average(array = []) {
+            const income = [];
+            array.forEach(element => {
+                income.push(Math.floor(element.salary));
+            });
+            var tong = 0;
+            income.forEach(element => {
+                tong += element;
+            });
+            var tbc = tong / array.length;
+            return tbc;
+        }
+
+        var kq1 = Average(people);
+        console.log('kq1', kq1);
+// 2) Who are the people that are currently older than 30?
+        function Older(array) {
+            const newYear = new Date().getFullYear();
+            const older = array.filter(function(item) {
+                return newYear - new Date(item.DOB).getFullYear() > 30;
+                
+            });
+            const name = [];
+            older.forEach(element => {
+                name.push(element.firstName + " " + element.lastName);
+            })
+            return name;
+        };
+
+        var kq2 = Older(people);
+        console.log('kq2', kq2  );
+
+
+// 3) Get a list of the people's full name (firstName and lastName).
+        function FullName(array) {
+            const name = [];
+            array.forEach(element => {
+                name.push(element.firstName + " " + element.lastName);
+            });
+            return name;
+        };
+
+        var kq3 = FullName(people);
+        console.log('kq3', kq3);
+
+// 4) Get a list of people in the array ordered from youngest to oldest.
+        function ListSoft(array) {
+            const newYear = new Date().getFullYear();
+            for (let i = 0; i < array.length - 1; i++) {
+                for ( let j = i + 1; j < array.length; j++) {
+                    if ((new Date(array[j].DOB).getFullYear() - newYear) > (new Date(array[i].DOB).getFullYear() - newYear)) {
+                        let item = array[i];
+                        array[i] = array[j];
+                        array[j] = item;
+                    } 
+                }
+            }
+            return array;
+        }
+
+        var kq4 = ListSoft(people);
+        console.log('kq4', kq4);
+// 5) How many people are there in each department?
+        function f5(array) {
+            const department = [];
+            const resuft = [];
+            array.map(function(element) {
+                department.push(element.department);
+            });
+            const newDepartment = department.filter((item, index, department) => department.indexOf(item) === index );
+            newDepartment.forEach(item => {
+                const b = array.filter(element => {
+                    return item === element.department;
+                });
+                resuft.push(item + ": " + b.length);
+            });
+            return resuft;
+        }
+        var kq5 = f5(people);
+        console.log('kq5', kq5);
+
+    </script>
+</body>
+</html>
