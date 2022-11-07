@@ -24,14 +24,10 @@
 ];
 
 // 1) What is the average income of all the people in the array?
-        function Average(array = []) {
-            const income = [];
-            array.forEach(element => {
-                income.push(Math.floor(element.salary));
-            });
+        function Average(array) {
             var tong = 0;
-            income.forEach(element => {
-                tong += element;
+            array.forEach(element => {
+                tong += Number(element.salary);
             });
             var tbc = tong / array.length;
             return tbc;
